@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVEST</title>
+
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+
+        .plan-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1600px;
+            margin: 40px 0;
+        }
+
+        .plan-container .card {
+            position: relative;
+            min-width: 320px;
+            height: 440px;
+            box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+                5px 5px 5px rgba(0, 0, 0, 0.3),
+                -5px -5px 15px rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin: 30px;
+        }
+
+        .plan-container .card .box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2a2b2f;
+            border: 2px solid #1e1f23;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        .plan-container .card .box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+        }
+
+        .plan-container .card .box:hover {
+            transform: translateY(-50px);
+            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .plan-container .card .box .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .plan-container .card .box .content h2 {
+            position: absolute;
+            top: -10px;
+            right: 30px;
+            font-size: 8em;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        .plan-container .card .box .content h3 {
+            font-size: 1.8em;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 1;
+            transition: 0.5s;
+        }
+
+        .plan-container .card .box .content p {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            z-index: 1;
+            transition: 0.5s;
+        }
+
+        .plan-container .card:hover .box .content h3,
+        .plan-container .card:hover .box .content p {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .plan-container .card .box .content a {
+            position: relative;
+            display: inline-block;
+            padding: 8px 20px;
+            background: #FF5627;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 400;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="google_translate_element" style="position: fixed; right: 60px; top: 0; z-index: 10;"></div>
+
+    <div class="container">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <nav class="sidebar">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgjA6FdqLFps5zaTKQjQJaEThc8nqqk-qq8BTrxjoc1a2DWIJ2wb-eTf1R4hYRwC4UDqdR2kOish2vKcemBjYQEh0waLfZ4wcteJvy0TISrdbPWZm8udx730Ow7nj-oU_-7ZJGQSWWU8iAa_FG3BZ02BK1gpXYzmxj-s42fk4D0WrooBR6bypV9ImrSOg=s800"
+                            alt="">
+                    </span>
+
+                    <div class="text logo-text">
+                        <span class="name">Epic Trade</span>
+                    </div>
+                </div>
+
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+
+                    <li class="search-box">
+                        <i class='bx bx-search icon'></i>
+                        <input type="text" placeholder="Search...">
+                    </li>
+
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="dashboard.html">
+                                <i class='bx bx-home-alt icon'></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="deposit.html">
+                                <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                <span class="text nav-text">Deposit</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="invest.html">
+                                <i class='bx bx-bell icon'></i>
+                                <span class="text nav-text">Invest</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="withdraw.html">
+                                <i class='bx bx-pie-chart-alt icon'></i>
+                                <span class="text nav-text">Withdraw</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="referral.html">
+                                <i class='bx bx-wallet icon'></i>
+                                <span class="text nav-text">Referral</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="profile.html">
+                                <i class='bx bx-wallet icon'></i>
+                                <span class="text nav-text">Profile</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="../index.html">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>
+
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+
+        </nav>
+
+        <section class="home">
+            <div class="text">Investment Plans</div>
+
+            <div class="plan-container">
+                <div class="card">
+                    <div class="box">
+                        <div class="content">
+                            <h2>01</h2>
+                            <h3>Card One</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium tempora
+                                reiciendis nam libero ipsa consectetur officia eius odio sint?</p>
+                            <a href="deposit.html">Invest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="content">
+                            <h2>02</h2>
+                            <h3>Card Two</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium tempora
+                                reiciendis nam libero ipsa consectetur officia eius odio sint?</p>
+                                <a href="deposit.html">Invest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="content">
+                            <h2>03</h2>
+                            <h3>Card Three</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium tempora
+                                reiciendis nam libero ipsa consectetur officia eius odio sint?</p>
+                                <a href="deposit.html">Invest</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="content">
+                            <h2>04</h2>
+                            <h3>Card Four</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium tempora
+                                reiciendis nam libero ipsa consectetur officia eius odio sint?</p>
+                                <a href="deposit.html">Invest</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+
+    <script src="scripts/dashboard.js"></script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+
+    <!--GOOGLE TRANLATOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+</body>
+
+</html>

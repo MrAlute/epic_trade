@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER - EPIC TRADE</title>
+
+    <link rel="stylesheet" href="styles/register.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <h1>EPIC TRADE</h1>
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Login</h2>          
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email">
+                <small>Error Message</small>
+            </div>
+         
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <small>Error Message</small>
+            </div>
+            
+            <button onclick="loginFunc()">Submit</button>
+            <p>Don't have an account? <a href="./register.html">Signup</a></p>
+        </form>
+    </div>
+    <script src="scripts/script.js"></script>
+
+
+    <script>
+        // window.addEventListener("load", () => {
+        //     document.querySelector(".page-loader").classList.add("fade-out");
+        //     document.querySelector(".page-loader").style.display = "none";
+        // })
+
+
+
+
+
+        var url = "https://api.minersaid.com/";
+        var localhost = "http://127.0.0.1:8001/";
+
+        var email = document.getElementById("email").value
+        var password = document.getElementById("password");
+
+        var userEmail = localStorage.getItem("user-email");
+        var userPassword = localStorage.getItem("user-password");
+
+        function loginFunc() {
+            event.preventDefault();
+
+            
+            // $('#success-message').html("connecting, please wait...");
+
+            //loader
+            // $(".page-loader").removeClass("fade-out")
+            // $(".page-loader").addClass("loader-fade-in")
+
+            //fetching data for login from api 
+            // var formData = new FormData();
+            // formData.append("username", document.getElementById('email').value);
+            // formData.append("password", document.getElementById('password').value);
+
+            if (email.value == '' || password.value == '') {
+                // $('#error-message').html('Please fill in your email and password');
+
+                // $(".page-loader").removeClass("loader-fade-in")
+
+                // $(".page-loader").addClass("fade-out")
+
+                return false;
+            }else if (email == userEmail && password == userPassword){
+                setTimeout(() => {
+                            location.href = "./dashboard.html";
+                        }, 3000);
+            }
+
+            // $.ajax({
+            //     url: url + "signin",
+            //     type: "post",
+            //     processData: false,
+            //     contentType: false,
+            //     // headers: {
+            //     //     "Content-type": "application/json"
+            //     // },
+            //     data: formData,
+            //     success: function(data) {
+            //         $(".page-loader").removeClass("loader-fade-in")
+
+            //         $(".page-loader").addClass("fade-out")
+
+            //         console.log(data);
+            //         if (data.message == "login successfull") {
+            //             $('#success-message').html(data.message + " Redirecting to Dashboard");
+            //             localStorage.setItem("name", data.user_details.name);
+            //             localStorage.setItem("token", data.access_token);
+            //             localStorage.setItem("id", data.user_details.id);
+            //             localStorage.setItem("username", data.user_details.username);
+            //             localStorage.setItem("email", data.user_details.email);
+            //             localStorage.setItem("uniqueId", data.user_details.unique_id);
+            //             localStorage.setItem("receiving_details", data.user_details.receiving_details);
+
+            //             setTimeout(() => {
+            //                 location.href = "dashboard.html";
+            //             }, 3000);
+
+            //         } else {
+            //             $('#success-message').html("");
+
+            //             $('#error-message').html(data.message);
+            //         }
+
+            //     },
+            //     error: function(err) {
+            //         $('#success-message').html("");
+
+            //         $(".page-loader").removeClass("loader-fade-in")
+
+            //         $(".page-loader").addClass("fade-out")
+            //             // console.log(err)
+            //         $('#error-message').html(err.responseJSON.detail);
+
+            //     }
+
+            // })
+        }
+    </script>
+</body>
+</html>

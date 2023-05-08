@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f2f2f2;
+            color: #333;
+            font-size: 14px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .payment-option label {
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #009933;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Payment Page</h2>
+        <form>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" min="1" max="10000" step="1" oninput="showAmount()">
+            <div id="paymentOptionSection" class="hidden">
+                <div class="payment-option">
+                    <input type="radio" id="usdt" name="payment-option" value="usdt" checked>
+                    <label for="usdt">USDT</label>
+                    <span id="usdtAddress" class="hidden">Wallet Address: USDT123456</span>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="bitcoin" name="payment-option" value="bitcoin">
+                    <label for="bitcoin">Bitcoin</label>
+                    <span id="bitcoinAddress" class="hidden">Wallet Address: BTC123456</span>
+                </div>
+            </div>
+            <button type="submit" class="hidden">Pay</button>
+        </form>
+    </div>
+
+    <script>
+        function showAmount() {
+            const amountInput = document.getElementById('amount');
+            const amountDisplay = document.getElementById('amount-display');
+
+            if (amountInput.value > 0) {
+                amountDisplay.innerHTML = `Selected Amount: ${amountInput.value}`;
+            } else {
+                amountDisplay.innerHTML = '';
+            }
+        }
+
+        function submitPayment() {
+            const amountInput = document.getElementById('amount');
+            const paymentOption = document.querySelector('input[name="payment-option"]:checked');
+            const fileInput = document.getElementById('file-input');
+
+            if (amountInput.value > 0 && paymentOption) {
+                // Get wallet address based on selected payment option
+                let walletAddress = '';
+                if (paymentOption.value === 'usdt') {
+                    walletAddress = 'USDT123456';
+                } else if (paymentOption.value === 'bitcoin') {
+                    walletAddress = 'BTC123456';
+                }
+
+                // // Prepare data to send to server
+                // const formData = new FormData();
+                // formData.append('amount', amountInput.value);
+                // formData.append('paymentOption', paymentOption.value);
+                // formData.append('walletAddress', walletAddress);
+                // formData.append('file', fileInput.files[0]);
+
+                // // Send data to server using fetch
+                // fetch('/process-payment', {
+                //     method: 'POST',
+                //     body: formData
+                // })
+                //     .then(response => {
+                //         if (response.ok) {
+                //             alert('Payment successful!');
+                //         } else {
+                //             alert('An error occurred. Please try again.');
+                //         }
+                //     })
+                //     .catch(error => {
+                //         alert('An error occurred. Please try again.');
+                //         console.error(error);
+                //     });
+
+            } else {
+                alert('Please select a payment option and enter a valid amount.');
+            }
+        }
+
+        const amountInput = document.getElementById('amount');
+        amountInput.addEventListener('input', showAmount);
+
+        const payButton = document.getElementById('pay-button');
+        payButton.addEventListener('click', submitPayment);
+
+    </script>
+</body>
+
+</html>

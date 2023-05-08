@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body>
+    <div id="google_translate_element" style="position: fixed; right: 60px; top: 0; z-index: 10;"></div>
+
+
+    <div class="user-menu-wrap">
+  
+        <a class="mini-photo-wrapper" href="#"><img class="mini-photo" src="../images/user.jpg" width="36" height="36" style="border-radius: 50%;"/></a>
+       
+        
+        <div class="menu-container">
+          <ul class="user-menu">
+            <div class="profile-highlight">
+              <img src="../images/user.jpg" alt="profile-img" width=36 height=36>
+              <div class="details">
+                <div id="profile-name">Kenny Lee</div>
+                <div id="profile-footer">@Kenny</div>
+              </div>
+            </div>
+            <li class="user-menu__item">
+                <a class="user-menu-link" href="deposit.html">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon" width=20 height=20>
+                  <div>Profile</div>
+                </a>
+              </li>
+            <li class="user-menu__item">
+              <a class="user-menu-link" href="deposit.html">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon" width=20 height=20>
+                <div>Deposit</div>
+              </a>
+            </li>
+            <li class="user-menu__item">
+              <a class="user-menu-link" href="withdraw.html">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png" alt="team_icon" width=20 height=20 >
+                <div>Withdraw</div>
+              </a>
+            </li>
+            <li class="user-menu__item">
+              <a class="user-menu-link" href="invest.html">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/book.png" alt="team_icon" width=20 height=20 >
+                <div>Invest</div>
+              </a>
+            </li>
+            <div class="footer">
+              <li class="user-menu__item"><a class="user-menu-link" href="login.html" style="color: #F44336;">Logout</a></li>
+              <li class="user-menu__item"><a class="user-menu-link" href="#">Settings</a></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+
+    <div class="container">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <nav class="sidebar">
+            <header>
+                <div class="image-text">
+                    <span class="image">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgjA6FdqLFps5zaTKQjQJaEThc8nqqk-qq8BTrxjoc1a2DWIJ2wb-eTf1R4hYRwC4UDqdR2kOish2vKcemBjYQEh0waLfZ4wcteJvy0TISrdbPWZm8udx730Ow7nj-oU_-7ZJGQSWWU8iAa_FG3BZ02BK1gpXYzmxj-s42fk4D0WrooBR6bypV9ImrSOg=s800"
+                            alt="">
+                    </span>
+
+                    <div class="text logo-text">
+                        <span class="name">Epic Trade</span>
+                    </div>
+                </div>
+
+                <i class='bx bx-chevron-right toggle'></i>
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+
+                    <li class="search-box">
+                        <i class='bx bx-search icon'></i>
+                        <input type="text" placeholder="Search...">
+                    </li>
+
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="dashboard.html">
+                                <i class='bx bx-home-alt icon'></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="deposit.html">
+                                <i class='bx bx-bar-chart-alt-2 icon'></i>
+                                <span class="text nav-text">Deposit</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="invest.html">
+                                <i class='bx bx-bell icon'></i>
+                                <span class="text nav-text">Invest</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="withdraw.html">
+                                <i class='bx bx-pie-chart-alt icon'></i>
+                                <span class="text nav-text">Withdraw</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="referral.html">
+                                <i class='bx bx-wallet icon'></i>
+                                <span class="text nav-text">Referral</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="profile.html">
+                                <i class='bx bx-wallet icon'></i>
+                                <span class="text nav-text">Profile</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="../index.html">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </li>
+
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
+
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+
+        </nav>
+
+        <section class="home">
+
+            <div class="card-container">
+
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">
+                            Account Balance<svg class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24"
+                                aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">$100,500</span>
+                    </div>
+                </div>
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">Profits<svg class="MuiSvgIcon-root-19" focusable="false"
+                                viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">$50,000</span><span
+                            class="c-dashboardInfo__subInfo">Last month: $30</span>
+                    </div>
+                </div>
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">
+                            Total deposit<svg class="MuiSvgIcon-root-19" focusable="false" viewBox="0 0 24 24"
+                                aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">$50,000</span>
+                    </div>
+                </div>
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">Total Withdrawals<svg class="MuiSvgIcon-root-19"
+                                focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">$60,400</span>
+                    </div>
+                </div>
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">Active Investment Plans<svg class="MuiSvgIcon-root-19"
+                                focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">3</span>
+                    </div>
+                </div>
+                <div class="c-dashboardInfo">
+                    <div class="wrap">
+                        <h4 class="c-dashboardInfo__title">Referral Bonuses<svg class="MuiSvgIcon-root-19"
+                                focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
+                                </path>
+                            </svg></h4><span class="c-dashboardInfo__count">$0</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--TRADING VIEW WIDGET-->
+            <!-- <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright">
+                    <a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank">
+                        <span class="blue-text">Markets today</span>
+                    </a> by TradingView
+                </div>
+            </div> -->
+
+            <!-- TRADING CHAT-->
+            <div id="chart-container" style="height: 300px; width: 95%; margin: auto;"></div>
+
+
+            <!--TRANSACTIONS SECTION-->
+            <div class="table-wrapper">
+                <div class="table-container">
+                    <table>
+                        <caption>TRANSACTIONS</caption>
+                        <tbody>
+                            <tr>
+                                <th>Plan Name</th>
+                                <th>Amount</th>
+                                <th>Id</th>
+                                <th>Date</th>
+                                <th>Purpose</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td data-cell="name">Mac Verstappen</td>
+                                <td data-cell="poles">22</td>
+                                <td data-cell="podiums">80</td>
+                                <td data-cell="wins">37</td>
+                                <td data-cell="career points">2080.5</td>
+                                <td data-cell="championships">2</td>
+                            </tr>
+                            <tr>
+                                <td data-cell="name">Lewis Hamilton</td>
+                                <td data-cell="poles">103</td>
+                                <td data-cell="podiums">192</td>
+                                <td data-cell="wins">103</td>
+                                <td data-cell="career points">4443.5</td>
+                                <td data-cell="championships">7</td>
+                            </tr>
+                      
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+
+    <script src="https://unpkg.com/lightweight-charts@3.1.1/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script src="scripts/dashboard.js"></script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+ 
+    <!--GOOGLE TRANLATOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+       <!--CRYPTO CHAT-->
+       <script>
+        const widget = new TradingView.widget({
+            "autosize": true,
+            "symbol": "BTCUSDT",
+            "interval": "10",
+            "timezone": "Etc/UTC",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "container_id": "chart-container"
+        });
+    </script>
+
+
+
+    <!--Trading view widget-->
+    <!-- <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async>
+            {
+                "symbols": [
+                    {
+                        "proName": "FOREXCOM:SPXUSD",
+                        "title": "S&P 500"
+                    },
+                    {
+                        "proName": "FOREXCOM:NSXUSD",
+                        "title": "US 100"
+                    },
+                    {
+                        "proName": "FX_IDC:EURUSD",
+                        "title": "EUR/USD"
+                    },
+                    {
+                        "proName": "BITSTAMP:BTCUSD",
+                        "title": "Bitcoin"
+                    },
+                    {
+                        "proName": "BITSTAMP:ETHUSD",
+                        "title": "Ethereum"
+                    }
+                ],
+                    "showSymbolLogo": true,
+                    "colorTheme": "dark",
+                    "isTransparent": false,
+                    "displayMode": "adaptive",
+                    "locale": "en"
+            }
+        </script> -->
+</body>
+
+</html>

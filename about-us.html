@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Epic Trade</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!--FOR YOUTUBE CAROUSEL-->
+    <link rel="stylesheet" href="@splidejs/splide/dist/css/splide.min.css">
+    <link href="lity/dist/lity.css" rel="stylesheet">
+
+</head>
+<style>
+    .page-width {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+
+    }
+
+    .page-width h2 {
+        text-align: center;
+    }
+
+    .splide {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .page-width .splide__slide img {
+
+        max-width: 100%;
+
+
+    }
+
+    .splide__arrow--prev {
+        margin-left: -50px;
+    }
+
+    .splide__arrow--next {
+        margin-right: -50px;
+    }
+
+    .splide__pagination {
+        margin-bottom: -35px;
+    }
+
+    .splide__pagination__page.is-active {
+        background: green;
+    }
+
+    .codepen-info {
+        max-width: 950px;
+        margin: 0 auto;
+        background: #f4f4f4;
+        padding: 20px 30px;
+        margin-top: 40px;
+
+    }
+
+    .codepen-info h1 {
+        font-weight: 500;
+        text-align: center;
+        color: black;
+        margin-top: 0;
+    }
+
+    .codepen-info p {
+        color: #777;
+    }
+
+    .codepen-info .src {
+        padding: 15px;
+        background: white;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    .codepen-info .src p.coded {
+        background: #f1f1f1;
+        color: black;
+    }
+</style>
+
+<body>
+
+    <!--NAV SECTION-->
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Your Logo</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About us</a></li>
+                    <li><a href="index.html#plans">Plans</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact-us.html">Contacts</a></li>
+                    <li>
+
+                        <a class="login" href="user-dashboard/login.html"><i style="color: white;" class="fa fa-user"></i>Login</a>
+                    </li>
+                    <li>
+
+                        <a class="sign-up" href="user-dashboard/register.html"><i style="color: white;" class="fa fa-sign-in"></i>Sign up</a>
+                    </li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+
+    <!-- HEADER-->
+    <div class="header-container">
+        <h1><span>About Us</span></h1>
+    </div>
+
+    <!-- AUTOMATION SECTION-->
+    <section>
+        <div class="automated-section" style="background-color: white; color: black;">
+            <div class="automated-header">
+                <h1>Who We Are</h1><br>
+                <p>Epic Trade is a successful online trading and investment platform for brokers interested in Foreign
+                    Exchange, Stock Market Trading, and Cryptocurrency Trading. We give our users the potential to
+                    generate financial returns on both rising and falling prices across indices, FX, commodities, shares
+                    and cryptocurrencies.
+                </p><br>
+                <p>
+                    We strive to help our clients make the most out of online trading by assisting them to access
+                    liquidity and manage risk effectively. Our comprehensive technology, state-of-the-art security
+                    encryption, and unparalleled network allow us to deliver an unforgettable trading experience.
+                </p><br>
+                <h2>Epic Trade, Certificate Of Trade</h2><br>
+                <button class="btn btn-modal">See Certificate</button>
+            </div>
+            <div class="automated-img">
+                <img src="images/Asset-1mockup-1.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATE MODAL -->
+    <div class="box">
+        <div class="overlay"></div>
+
+        <div class="modal__box">
+            <!-- <h3 class="modal__title">Are you sure?</h3>
+          <p class="modal__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga et quos
+            eligendi, cumque iusto, tenetur consequatur sit laborum qui est
+            voluptates veniam, assumenda quasi neque!
+          </p>
+          <p class="modal__text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Necessitatibus non quam repellendus id reiciendis provident, fuga
+            culpa, doloribus fugit eaque dolorum unde ipsam itaque odit illum
+            quisquam ipsum, aut quis.
+          </p> -->
+            <!-- <div class="cert-img">
+            <img src="images/Asset-54fxharvard.png" alt="">
+          </div> -->
+            <div class="buttons">
+                <button class="btn modal__button modal__button--yes">Done!</button>
+                <button class="btn modal__button modal__button--no">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section>
+        <div class="about-container">
+            <div class="about-contain">
+
+                <h1>ABOUT EPIC TRADE</h1>
+                <h4>A Proven Cryptocurrency Trading Approach</h4>
+
+                <div class="about-card-section">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i style="color: white;" class="fa fa-user"></i>
+                        </div>
+                        <h2>Diversification</h2><br>
+                        <p>This is the main idea in general terms. We do not focus on trading one cryptocurrency. By
+                            analyzing future prices, we always choose the best way out</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i style="color: white;" class="fa fa-cloud"></i>
+                        </div>
+                        <h2>Trading</h2><br>
+                        <p>The techniques we use to crypto-cloud mining give excellent results that we can pass on
+                            to
+                            our investors who do not have to do it themselves.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i style="color: white;" class="fa fa-table"></i>
+                        </div>
+                        <h2>Proven Infrastructure</h2><br>
+                        <p>We use the latest equipment, which, with a professionally selected configuration, allows
+                            you
+                            to achieve even higher results with a relatively low level of investment</p>
+                    </div>
+                </div>
+                <a href="#">Learn more <i style="color: white;" class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY PEOPLE INVEST IN BTC SECTION-->
+    <section>
+        <div class="automated-section" style="background-color: white; color: black;">
+            <div class="automated-header">
+                <h1>Why Are So Many People Investing Digital Currencies Like BitCoin?</h1><br>
+                <h2 style="color: #777;">200+ Reasons To Invest With Us</h2><br>
+                <p>
+                    A team of professional Traders have applied more than 250 trading strategies in last 3 years and finally we are achieving optimum results, <br><br>
+
+                    We are making maximum profit by applying several successfully tested strategies.
+                </p><br>
+
+
+            </div>
+            <div class="automated-img">
+               
+            </div>
+        </div>
+    </section>
+
+    <div class="page-width">
+        <section class="splide" aria-labelledby="carousel-heading">
+            <h2 id="carousel-heading">Learn More?</h2><br>
+
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <a href="https://www.youtube.com/watch?v=W15A7Lf0_fI&ab_channel=ColdFusion" data-lity>
+                            <img src="https://cdn.shopify.com/s/files/1/0248/2444/7029/files/vid-3-light-min.jpg?v=1660937599"
+                                alt="Video Testimonial">
+                        </a>
+                    </li>
+
+                    <li class="splide__slide">
+                        <a href="https://www.youtube.com/watch?v=mzoX7zEZ6h4&ab_channel=ColdFusion" data-lity>
+                            <img src="https://cdn.shopify.com/s/files/1/0248/2444/7029/files/vid-2-light-min.jpg?v=1660937624"
+                                alt="Video Testimonial">
+                        </a>
+                    </li>
+
+                    <li class="splide__slide">
+                        <a href="https://www.youtube.com/watch?v=1YyAzVmP9xQ&ab_channel=Simplilearn" data-lity>
+                            <img src="https://cdn.shopify.com/s/files/1/0248/2444/7029/files/vid-1-light-min.jpg?v=1660937649"
+                                alt="Video Testimonial">
+                        </a>
+                    </li>
+
+                    <li class="splide__slide">
+                        <a href="https://www.youtube.com/watch?v=L-Qhv8kLESY&ab_channel=Techquickie" data-lity>
+                            <img src="https://cdn.shopify.com/s/files/1/0248/2444/7029/files/vid-4-min.jpg?v=1662580555"
+                                alt="Video Testimonial">
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER SECTION-->
+
+    <footer>
+        <div class="footer-section">
+            <div class="footer-flex">
+                <div class="one">
+                    <a href="#" class="logo">Your Logo</a>
+                    <p>Founded and managed by leading industry professionals Epic Trade was established with a
+                        clear vision: To provide unrivaled trading solutions to investors from all over the world
+                        with a stellar client centered culture.</p>
+                </div>
+                <div class="one">
+                    <h2>Navigations</h2>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="index.html#plans">Plans</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact-us.html">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="one">
+                    <h2>Legal</h2>
+                    <ul class="navlinks">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="one">
+                    <h2>Contact</h2>
+                    <span><i style="color: white;" class="fa fa-envelope"></i> support@epictrade.com</span>
+                </div>
+
+            </div>
+            <span>Copyright &copy; 2023 All rights reserved</span>
+        </div>
+    </footer>
+
+    <!--SCRIPTS-->
+    <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery3.6.1.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/nav-bar.js"></script>
+
+    <!--SCRIPTS FOR YOUTUBE VIDEO CAROUSEL-->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="lity/dist/lity.js"></script>
+    <script src="@splidejs/splide/dist/js/splide.min.js"></script>
+
+
+
+    <script>
+        var splide = new Splide(".splide", {
+            perPage: 3,
+            gap: "3rem",
+            breakpoints: {
+                640: {
+                    perPage: 2,
+                    gap: ".7rem",
+                    height: "12rem"
+                },
+                480: {
+                    perPage: 1,
+                    gap: ".7rem",
+                    height: "18rem"
+                }
+            }
+        });
+
+        splide.mount();
+
+    </script>
+
+</body>
+
+</html>

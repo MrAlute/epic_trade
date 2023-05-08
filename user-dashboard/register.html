@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER - EPIC TRADE</title>
+
+    <link rel="stylesheet" href="styles/register.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <h1>EPIC TRADE</h1>
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Register With Us</h2>
+            <div class="form-control">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" placeholder="Enter Your Full Mame">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Username">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+000">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="password2">Confirm Password</label>
+                <input type="password" id="password2" placeholder="Enter password again">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="country">Country</label>
+                <select id="country" class="form-control">                  
+                </select>
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="referral">Referral Code</label>
+                <input type="text" id="referral" placeholder="Optional">
+                <small>Error Message</small>
+            </div>
+            <div class="form-control">
+                <label for="checkbox">I Accept the Terms And Privacy Policy</label>
+                <input type="checkbox" id="checkbox">
+                <small>Error Message</small>
+            </div>
+            <button>Submit</button>
+            <p>Already have an account? <a href="./login.html">Login</a></p>
+        </form>
+    </div>
+    <!-- Include the Rest Countries API -->
+    <script src="https://restcountries.com/v2/all?fields=name,alpha2Code"></script>
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/register.js"></script>
+    <script src="scripts/script.js"></script>
+
+
+  
+  
+</body>
+
+</html>
