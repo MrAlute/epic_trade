@@ -382,7 +382,7 @@ form.addEventListener('submit', function (e) {
   
     setTimeout(() => {
         //location.href = "login.html";
-        location.href = "../login.html";
+        location.href = "/user-dashboard/login.html";
       }, 3000);
     // const requiredFields = [username, email, password, password2];
     // const isRequiredFieldsValid = checkRequired(requiredFields);
