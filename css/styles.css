@@ -414,7 +414,7 @@ img {
     height: 700px;
     background-color: var(--dark-color);
     background-position: bottom right;
-    background-image: url('/images/banner_inner_img.png');
+    background-image: url('../images/banner_inner_img.png');
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 3;
