@@ -380,26 +380,30 @@ function checkPasswordMatch(input1, input2) {
 form.addEventListener('submit', function (e) {
     e.preventDefault();
   
-    const requiredFields = [username, email, password, password2];
-    const isRequiredFieldsValid = checkRequired(requiredFields);
-    const isUsernameLengthValid = checkLength(username, 3, 15);
-    const isPasswordLengthValid = checkLength(password, 6, 25);
-    const isEmailValid = checkEmail(email);
-    const isPasswordMatchValid = checkPasswordMatch(password, password2);
-  
-    if (isRequiredFieldsValid && isUsernameLengthValid && isPasswordLengthValid && isEmailValid && isPasswordMatchValid) {
-        console.log("good")
-      localStorage.setItem("user-fullname", fullname.value);
-      localStorage.setItem("user-username", username.value);
-      localStorage.setItem("user-email", email.value);
-      localStorage.setItem("user-password", password.value);
-      localStorage.setItem("user-phone", phoneInputField.value);
-  
-      setTimeout(() => {
+    setTimeout(() => {
         //location.href = "login.html";
         location.href = "../login.html";
       }, 3000);
-    }
+    // const requiredFields = [username, email, password, password2];
+    // const isRequiredFieldsValid = checkRequired(requiredFields);
+    // const isUsernameLengthValid = checkLength(username, 3, 15);
+    // const isPasswordLengthValid = checkLength(password, 6, 25);
+    // const isEmailValid = checkEmail(email);
+    // const isPasswordMatchValid = checkPasswordMatch(password, password2);
+  
+    // if (isRequiredFieldsValid && isUsernameLengthValid && isPasswordLengthValid && isEmailValid && isPasswordMatchValid) {
+    //     console.log("good")
+    //   localStorage.setItem("user-fullname", fullname.value);
+    //   localStorage.setItem("user-username", username.value);
+    //   localStorage.setItem("user-email", email.value);
+    //   localStorage.setItem("user-password", password.value);
+    //   localStorage.setItem("user-phone", phoneInputField.value);
+  
+    //   setTimeout(() => {
+    //     //location.href = "login.html";
+    //     location.href = "../login.html";
+    //   }, 3000);
+    // }
   });
   
 

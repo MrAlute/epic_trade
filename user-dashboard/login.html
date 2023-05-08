@@ -60,7 +60,9 @@
         function loginFunc() {
             event.preventDefault();
 
-            
+            setTimeout(() => {
+                            location.href = "./dashboard.html";
+                        }, 3000);
             // $('#success-message').html("connecting, please wait...");
 
             //loader
@@ -72,19 +74,19 @@
             // formData.append("username", document.getElementById('email').value);
             // formData.append("password", document.getElementById('password').value);
 
-            if (email.value == '' || password.value == '') {
-                // $('#error-message').html('Please fill in your email and password');
+            // if (email.value == '' || password.value == '') {
+            //     // $('#error-message').html('Please fill in your email and password');
 
-                // $(".page-loader").removeClass("loader-fade-in")
+            //     // $(".page-loader").removeClass("loader-fade-in")
 
-                // $(".page-loader").addClass("fade-out")
+            //     // $(".page-loader").addClass("fade-out")
 
-                return false;
-            }else if (email == userEmail && password == userPassword){
-                setTimeout(() => {
-                            location.href = "./dashboard.html";
-                        }, 3000);
-            }
+            //     return false;
+            // }else if (email == userEmail && password == userPassword){
+            //     setTimeout(() => {
+            //                 location.href = "./dashboard.html";
+            //             }, 3000);
+            // }
 
             // $.ajax({
             //     url: url + "signin",
