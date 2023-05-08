@@ -475,7 +475,7 @@ img {
 .about-container {
     width: 100%;
     background-color: #090909;
-    background-image: url('/images/spiral_wireframe.png');
+    background-image: url('../images/spiral_wireframe.png');
     background-repeat: no-repeat;
     background-size: cover;
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
@@ -601,7 +601,7 @@ img {
 .how-it-works-section {
     width: 100vw;
     background-color: var(--light-color);
-    background-image: url('/images/white_server_bg.jpg');
+    background-image: url('../images/white_server_bg.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -619,7 +619,7 @@ img {
 .why-invest-section {
     width: 100%;
     background-color: var(--dark-color);
-    background-image: url('/images/repulse_circle.png');
+    background-image: url('../images/repulse_circle.png');
     background-position: 50% 12.3em;
     background-repeat: no-repeat;
     background-size: 610px auto;
@@ -705,7 +705,7 @@ img {
 /* PLAN SECTION*/
 .plan-section {
     max-width: 1140px;
-    background-image: url('/images/bitcoin_mine_bg.png');
+    background-image: url('../images/bitcoin_mine_bg.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -795,7 +795,7 @@ img {
 
 .testimonia-section {
     background-color: var(--light-color);
-    background-image: url('/images/grey_btc_bg.jpg');
+    background-image: url('../images/grey_btc_bg.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -896,7 +896,7 @@ img {
 /* MAKE MONEY SECTION*/
 .make-money-section{
     background-color: var(--light-color);
-    background-image: url('/images/grey_btc_bg.jpg');
+    background-image: url('../images/grey_btc_bg.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -927,7 +927,7 @@ img {
 
 /* AFFILIATE SECTION*/
 .affiliate-section{
-    background-image: url('/images/server_bg.jpg');
+    background-image: url('../images/server_bg.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

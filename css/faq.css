@@ -33,7 +33,7 @@ body {
 }
 
 .header-container {
-    background-image: url('/images/spiral_wireframe.png');
+    background-image: url('../images/spiral_wireframe.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
