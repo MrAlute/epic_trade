@@ -19,24 +19,43 @@
 
     <style>
         /* Optional styling for the text, button, and message card */
-        p {
-            padding: 10px;
-            font-size: 16px;
+
+        .referral-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .referral-link {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 5px;
         }
 
         button {
-            padding: 10px;
-            font-size: 16px;
-            background-color: blue;
-            color: white;
+            padding: 5px 10px;
+            background-color: #FF5627;
+            color: #fff;
             border: none;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+
+        button:hover {
+            background-color: #ec6743;
         }
 
         #messageCard {
             position: fixed;
             top: 20px;
-            right: 20px;
+            right: 50%;
             padding: 10px;
             font-size: 16px;
             background-color: #1d1c1c;
@@ -153,14 +172,22 @@
         </nav>
 
         <section class="home">
-            <div class="text">Referral link</div>
+            <div class="text">Referral</div>
 
-            <main>
-                <p class="para" id="textToCopy">Some text to copy</p>
-                <button class="cp-btn" onclick="copyText()">Copy text</button>
+            <div class="referral-container">
+                <h1>Referral Page</h1>
+                <p>Share this referral link:</p>
+                <div class="referral-link">
+                    <input type="text" id="referralLinkInput" value="https://your-referral-link.com" readonly>
+                    <button onclick="copyReferralLink()">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
 
-                <div id="messageCard"></div>
-            </main><br><br>
+            <div id="messageCard"></div>
+
+
         </section>
     </div>
 
@@ -186,22 +213,11 @@
 
     <!--COPY TEXT-->
     <script>
-        function copyText() {
-            // Get the text element and its value
-            const text = document.getElementById("textToCopy");
-            const textValue = text.textContent;
 
-            // Create a temporary textarea element and set its value to the text value
-            const tempTextarea = document.createElement("textarea");
-            tempTextarea.value = textValue;
-
-            // Append the textarea to the body and select its contents
-            document.body.appendChild(tempTextarea);
-            tempTextarea.select();
-
-            // Copy the selected text to the clipboard and remove the temporary textarea
+        function copyReferralLink() {
+            var referralLinkInput = document.getElementById("referralLinkInput");
+            referralLinkInput.select();
             document.execCommand("copy");
-            document.body.removeChild(tempTextarea);
 
             // Show the message card and set its text content
             const messageCard = document.getElementById("messageCard");
@@ -215,6 +231,8 @@
         }
 
     </script>
+
+
 
 </body>
 
