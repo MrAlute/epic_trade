@@ -243,11 +243,22 @@ body.dark {
 .sidebar header .image-text {
     display: flex;
     align-items: center;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .sidebar header .logo-text {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: -20px;
+    left: 50px;
+    z-index: -1;
+
+}
+.sidebar header .logo-text img{
+    width: 120px;
+    height: 120px;
 }
 
 /* ===== Reusable code - Here ===== */
@@ -737,6 +748,9 @@ tr:nth-of-type(2n) {
 }
 
 @media only screen and (max-width: 650px) {
+    .sidebar header .logo-text img{
+        top: -20px;
+    }
     th {
         display: none;
     }
