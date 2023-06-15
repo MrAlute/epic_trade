@@ -82,13 +82,16 @@ img {
     float: left;
     width: auto;
     height: auto;
-    padding-left: 2rem;
+    margin-left: 5px;
+    position: relative;
+    /* overflow: hidden; */
 }
 
-.nav div.logo a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 2.5rem;
+.nav div.logo a img{
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   top: -20px;
 }
 
 .nav div.logo a:hover {
@@ -1078,7 +1081,7 @@ img {
     }
 
     .nav div.logo {
-        margin-left: 15px;
+        margin-left: 5px;
     }
 
     .nav div.main_list {
