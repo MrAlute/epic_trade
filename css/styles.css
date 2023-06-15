@@ -1031,6 +1031,14 @@ img {
     width: calc(100% / 3);
 }
 
+footer .one{
+    position: relative;
+}
+footer .one .logoname{
+    position: absolute;
+    left: 30px;
+    top: -5px;
+}
 /* Media qurey section */
 
 /* @media screen and (min-width: 768px) and (max-width: 1024px) {
