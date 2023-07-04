@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,28 +15,40 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <h1>EPIC TRADE</h1>
     <div class="container">
         <form id="form" class="form">
-            <h2>Login</h2>          
+            <h2>Login</h2>
             <div class="form-control">
                 <label for="email">Email</label>
                 <input type="text" id="email" placeholder="Enter email">
                 <small>Error Message</small>
             </div>
-         
+
             <div class="form-control">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter password">
                 <small>Error Message</small>
             </div>
-            
+
             <button onclick="loginFunc()">Submit</button>
             <p>Don't have an account? <a href="./register.html">Signup</a></p>
         </form>
     </div>
     <script src="scripts/script.js"></script>
+
+    <div id="google_translate_element" style="position: fixed; left: 100px;  top: 0; z-index: 100;"></div>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!--GOOGLE TRANLATOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
 
 
     <script>
@@ -61,8 +74,8 @@
             event.preventDefault();
 
             setTimeout(() => {
-                            location.href = "./dashboard.html";
-                        }, 3000);
+                location.href = "./dashboard.html";
+            }, 3000);
             // $('#success-message').html("connecting, please wait...");
 
             //loader
@@ -139,4 +152,5 @@
         }
     </script>
 </body>
+
 </html>

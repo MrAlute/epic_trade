@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral - Epic Trade</title>
+    <title>Send Mail - Epic Trade</title>
 
 
     <link rel="stylesheet" href="styles/styles.css">
@@ -18,60 +18,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        /* Optional styling for the text, button, and message card */
-
-        .referral-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
         }
-
-        .referral-link {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
+    
+        .email-container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #f2f2f2;
+          border: 1px solid #ccc;
+          border-radius: 5px;
         }
-
-        input[type="text"] {
-            flex: 1;
-            padding: 5px;
+    
+        h1 {
+          color: #333;
         }
-
-        button {
-            padding: 5px 10px;
-            background-color: #FF5627;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
+    
+        p {
+          margin-bottom: 20px;
         }
-
-        button:hover {
-            background-color: #ec6743;
+    
+        .button {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #333;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
         }
-
-        #messageCard {
-            position: fixed;
-            top: 20px;
-            right: 50%;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #1d1c1c;
-            color: white;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            z-index: 100;
+    
+        .button:hover {
+          background-color: #555;
         }
-    </style>
+      </style>
 </head>
 
 <body>
-    <div id="google_translate_element" style="position: fixed; right: 60px; top: 0; z-index: 10;"></div>
-
+    
     <div class="container">
         <input id="menu__toggle" type="checkbox" />
         <label class="menu__btn" for="menu__toggle">
@@ -86,7 +71,7 @@
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name">Epic Trade</span>
+                        <span class="name">Admin</span>
                     </div>
                 </div>
 
@@ -108,41 +93,24 @@
                                 <span class="text nav-text">Dashboard</span>
                             </a>
                         </li>
-
                         <li class="nav-link">
-                            <a href="deposit.html">
+                            <a href="wallet.html">
+                                <i class='bx bx-pie-chart-alt icon'></i>
+                                <span class="text nav-text">Wallet</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="sendmail.html">
                                 <i class='bx bx-bar-chart-alt-2 icon'></i>
-                                <span class="text nav-text">Deposit</span>
+                                <span class="text nav-text">Send Mail</span>
                             </a>
                         </li>
-
-                        <li class="nav-link">
-                            <a href="invest.html">
-                                <i class='bx bx-bell icon'></i>
-                                <span class="text nav-text">Invest</span>
-                            </a>
-                        </li>
-
                         <li class="nav-link">
                             <a href="withdraw.html">
                                 <i class='bx bx-pie-chart-alt icon'></i>
                                 <span class="text nav-text">Withdraw</span>
                             </a>
                         </li>
-
-                        <li class="nav-link">
-                            <a href="referral.html">
-                                <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">Referral</span>
-                            </a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="profile.html">
-                                <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">Profile</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -172,66 +140,25 @@
         </nav>
 
         <section class="home">
-            <div class="text">Referral</div>
+            <div class="text">SEND EMAIL</div>
 
-            <div class="referral-container">
-                <h1>Referral Page</h1>
-                <p>Share this referral link:</p>
-                <div class="referral-link">
-                    <input type="text" id="referralLinkInput" value="https://your-referral-link.com" readonly>
-                    <button onclick="copyReferralLink()">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div id="messageCard"></div>
-
-
+            <!--SEND EMAIL SECTION-->
+            <div class="email-container">
+                <h1>Welcome to our Newsletter!</h1>
+                <p>Dear subscriber, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at purus sit amet dui efficitur consequat vitae ut ipsum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non justo nec sapien auctor iaculis. Ut consequat lectus nec orci feugiat, et eleifend justo consequat. Nam vel malesuada nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed id tellus lacinia, efficitur lorem eu, dignissim metus. Mauris scelerisque nunc enim, ac rhoncus felis fermentum eu. Sed in est at urna interdum vulputate. Fusce commodo lorem vitae enim fermentum pharetra. Pellentesque sem mi, efficitur nec mauris ut, gravida sollicitudin nulla.</p>
+                <p>Thank you for subscribing to our newsletter!</p>
+                <a href="#" class="button">Unsubscribe</a>
+              </div>
+            
         </section>
     </div>
-
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 
     <script src="scripts/dashboard.js"></script>
-
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-
-
-
-    <!--GOOGLE TRANLATOR-->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
-
-    <!--COPY TEXT-->
-    <script>
-
-        function copyReferralLink() {
-            var referralLinkInput = document.getElementById("referralLinkInput");
-            referralLinkInput.select();
-            document.execCommand("copy");
-
-            // Show the message card and set its text content
-            const messageCard = document.getElementById("messageCard");
-            messageCard.textContent = "Text copied";
-            messageCard.style.opacity = 1;
-
-            // Hide the message card after 3 seconds
-            setTimeout(() => {
-                messageCard.style.opacity = 0;
-            }, 3000);
-        }
-
-    </script>
-
+    <script src="scripts/script.js"></script>
 
 
 </body>

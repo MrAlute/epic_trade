@@ -44,6 +44,7 @@
 }
 
 
+
 body {
     width: 100vw;
     height: 100%;
@@ -52,6 +53,11 @@ body {
     font-family: "Poppins", sans-serif;
     overflow-wrap: break-word;
     transition: all .5s ease-in-out;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     
     
 }

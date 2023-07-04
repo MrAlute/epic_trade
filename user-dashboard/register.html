@@ -15,6 +15,20 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+    <style>
+        .password-eye{
+            position: relative;
+        }
+        .password-eye i{
+            position: absolute;
+            top: 33px;
+            right: 10px;
+            cursor: pointer;
+            z-index: 20;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,19 +51,16 @@
                 <input type="text" id="email" placeholder="Enter email">
                 <small>Error Message</small>
             </div>
-            <div class="form-control">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="+000">
-                <small>Error Message</small>
-            </div>
-            <div class="form-control">
+            <div class="form-control password-eye">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter password">
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
                 <small>Error Message</small>
             </div>
-            <div class="form-control">
+            <div class="form-control password-eye">
                 <label for="password2">Confirm Password</label>
                 <input type="password" id="password2" placeholder="Enter password again">
+                <i class="bi bi-eye-slash" id="togglePassword2"></i>
                 <small>Error Message</small>
             </div>
             <div class="form-control">
@@ -65,7 +76,7 @@
             </div>
             <div class="form-control">
                 <label for="checkbox">I Accept the Terms And Privacy Policy</label>
-                <input type="checkbox" id="checkbox">
+                <input type="checkbox" id="checkbox" style="cursor: pointer;">
                 <small>Error Message</small>
             </div>
             <button>Submit</button>
@@ -78,9 +89,19 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/script.js"></script>
 
+    <div id="google_translate_element" style="position: fixed; left: 100px;  top: 0; z-index: 100;"></div>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+     <!--GOOGLE TRANLATOR-->
+     <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
 
   <script>
-    const form = document.getElementById('form');
+        const form = document.getElementById('form');
 const fullname = document.getElementById('fullname');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -88,6 +109,31 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const phoneInputField = document.querySelector("#phone");
 const referral = document.getElementById('referral');
+
+    // Password eye toggle
+    const togglePassword = document.querySelector("#togglePassword");
+        const togglePassword2 = document.querySelector("#togglePassword2");
+
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+        togglePassword2.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password2.getAttribute("type") === "password" ? "text" : "password";
+            password2.setAttribute("type", type);
+            
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+
 
 
 

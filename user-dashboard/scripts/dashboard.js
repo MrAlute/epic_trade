@@ -28,9 +28,11 @@ modeSwitch.addEventListener("click", () => {
 });
 
 // On page load, check if there's a theme preference in local storage and set the theme accordingly
+const logoImg = document.getElementById("logoImg");
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   document.body.classList.add('dark');
+  logoImg.src = '../images/epiiktrade2.png';
 }
 
 
