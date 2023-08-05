@@ -14,6 +14,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
@@ -32,6 +34,7 @@
                 <input type="password" id="password" placeholder="Enter password">
                 <small>Error Message</small>
             </div>
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 
             <button onclick="loginFunc()">Submit</button>
             <p>Don't have an account? <a href="./register.html">Signup</a></p>
