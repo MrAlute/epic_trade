@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="icon" type="image/png" href="../images/epiiktrade_favicon.png">
     <link
@@ -108,7 +109,7 @@
         <nav class="sidebar">
             <header>
                 <div class="image-text">
-                   
+
                     <div class="text logo-text">
                         <span class="name"><img src="../images/epiiktrade2.png" alt="Epic Trade Name"></span>
                     </div>
@@ -196,6 +197,21 @@
         </nav>
 
         <section class="home">
+
+            <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
+                <div class="custom-modal-content">
+                    <div class="custom-modal-body">
+                        <i class="custom-success-icon fa fa-check-circle"></i>
+                        <p>Success! Account created successfully.</p>
+                        <button class="custom-modal-close-btn" onclick="hideCustomSuccessModal()">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner-container">
+            </div>
+
             <div class="text">Withdrawal</div>
 
             <div class="withdraw-card">
@@ -208,8 +224,8 @@
                         <option value="btc">Bitcoin</option>
                         <option value="usdt">USDT</option>
                     </select>
-                    <label for="address">Wallet Address:</label>
-                    <input type="text" id="address" name="address" required><br><br>
+                    <!-- <label for="address">Wallet Address:</label>
+                    <input type="text" id="address" name="address" required><br><br> -->
                     <button type="button" onclick="withdraw()">Withdraw</button>
                 </form>
             </div>
@@ -221,20 +237,15 @@
 
 
     <script src="scripts/dashboard.js"></script>
+    <script src="/scripts/universal.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
+
 
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 
-
-
-    <!--GOOGLE TRANLATOR-->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
 
     <script>
         function withdraw() {

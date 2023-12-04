@@ -115,7 +115,8 @@ h2{
 .form-control.error small{
     visibility: visible;
 }
-.form button {
+.form button,
+.login-button {
     cursor: pointer;
     background-color: #FF5627;
     border: 1px solid #FF5627;

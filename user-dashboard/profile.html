@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="icon" type="image/png" href="../images/epiiktrade_favicon.png">
     <link
@@ -17,7 +18,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    
+
     <style>
         .profile-container {
             width: 80%;
@@ -49,7 +50,8 @@
             font-weight: bold;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="number"] {
             width: 100%;
             padding: 5px;
             border: 1px solid #ccc;
@@ -72,12 +74,14 @@
 
         /* Language preference */
         /* Custom styling for the select box container */
-        .custom-lang-container{
+        .custom-lang-container {
             margin-top: 50px;
         }
-        .custom-lang-container h2{
+
+        .custom-lang-container h2 {
             color: #FF5627;
         }
+
         .custom-select-container {
             position: relative;
             display: inline-block;
@@ -216,6 +220,20 @@
 
         <section class="home">
 
+            <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
+                <div class="custom-modal-content">
+                    <div class="custom-modal-body">
+                        <i class="custom-success-icon fa fa-check-circle"></i>
+                        <p>Success! Account created successfully.</p>
+                        <button class="custom-modal-close-btn" onclick="hideCustomSuccessModal()">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner-container">
+            </div>
+
             <div class="text">Profile information</div>
 
             <div class="profile-container">
@@ -229,17 +247,35 @@
                 </div>
                 <div class="profile-info">
                     <label for="email">Email Address:</label>
-                    <input type="text" id="email" readonly>
+                    <input type="text" id="email_address" readonly>
                 </div>
                 <div class="profile-info">
-                    <label for="country">Country:</label>
+                    <label for="phone">Contact</label>
+                    <input type="text" id="phone_number" readonly>
+                </div>
+                <div class="profile-info">
+                    <label for="country">Country</label>
                     <input type="text" id="country" readonly>
                 </div>
-                <button>Edit</button>
+
+              
+            </div>
+            <br><br>
+            <div class="text">Wallet Address</div>
+            <div class="profile-container">
+                <div class="profile-info">
+                    <label for="bitcoin">Bitcoin</label>
+                    <input type="text" id="bitcoin_address">
+                </div>
+                <div class="profile-info">
+                    <label for="usdt">USDT</label>
+                    <input type="text" id="usdt_address">
+                </div>
+                <button id="btcButton">Edit</button>
             </div>
 
             <div class="custom-lang-container">
-                
+
                 <h2>Language Preference</h2><br>
                 <div class="custom-select-container">
                     <select id="languageSelect" class="custom-select">
@@ -259,6 +295,8 @@
                 <button id="saveBtn">Save</button>
 
             </div>
+
+
         </section>
 
     </div>
@@ -268,24 +306,149 @@
 
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="/scripts/universal.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
+
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!--GOOGLE TRANLATOR-->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
-
+  
 
     <script>
+
+        const uniqueId = localStorage.getItem('uniqueId')
         // JavaScript code to populate user information
-        document.getElementById("fullname").value = "John Doe";
-        document.getElementById("username").value = "johndoe";
-        document.getElementById("phone").value = "+1234567890";
-        document.getElementById("email").value = "johndoe@example.com";
-        document.getElementById("country").value = "United States";
+
+
+
+        $.ajax({
+            url: url + "user/profile/view/" + uniqueId,
+            type: "GET",
+            headers: {
+
+                Authorization: "Bearer " + token
+            },
+            success: function (data) {
+
+                console.log(data)
+
+                var fullName = document.getElementById("fullname").value = data.name;
+                var userName = document.getElementById("username").value = data.username;
+                var phoneNumber = document.getElementById("phone_number").value = data.phone_number;
+                var emailAddress = document.getElementById("email_address").value = data.email;
+                var country = document.getElementById("country").value = data.country;
+                var usdtAddress = document.getElementById("usdt_address").value = data.usdt_address;
+                var bitcoinAddress = document.getElementById("bitcoin_address").value = data.bitcoin_address;
+
+            },
+            error: function (err) {
+
+                console.log(err)
+
+            }
+
+        })
+
+
+
+
+
+        var password = document.getElementById("password");
+
+        var saveBtn = document.getElementById("saveBtn");
+
+
+        saveBtn.addEventListener("click", function (e) {
+            e.preventDefault()
+            LoadingSpinner.spin(container)
+            var formData = new FormData();
+            formData.append("language", document.getElementById('languageSelect').value);
+
+            $.ajax({
+                url: url + "user/language/update/" + uniqueId,
+                type: "put",
+                processData: false,
+                contentType: false,
+                data: formData,
+                headers: {
+
+                    Authorization: "Bearer " + token
+                },
+                success: function (data) {
+                    LoadingSpinner.stop(container)
+
+                    showCustomSuccessModal(data.message, "green")
+
+
+                },
+                error: function (error) {
+                    LoadingSpinner.stop(container)
+
+
+                    if (error.statusText == "error") {
+                        LoadingSpinner.stop(container)
+                        //alert("An error occured")
+                        showCustomSuccessModal("An error occured", "red")
+
+
+                    } else {
+                        //$("#message").css("color", "red");
+                        //$('#message').html(JSON.stringify(err.responseJSON.detail))
+                        showCustomSuccessModal(JSON.stringify(error.responseJSON.detail), "red")
+
+                    }
+                }
+            })
+        })
+
+
+        var btcButton = document.getElementById("btcButton");
+
+
+        btcButton.addEventListener("click", function (e) {
+            e.preventDefault()
+            LoadingSpinner.spin(container)
+            var formData = new FormData();
+            formData.append("bitcoin", document.getElementById('bitcoin_address').value);
+            formData.append("usdt", document.getElementById('usdt_address').value);
+
+            $.ajax({
+                url: url + "user/cryptoaddress/update/" + uniqueId,
+                type: "put",
+                processData: false,
+                contentType: false,
+                data: formData,
+                headers: {
+
+                    Authorization: "Bearer " + token
+                },
+                success: function (data) {
+                    LoadingSpinner.stop(container)
+
+                    showCustomSuccessModal(data.message, "green")
+
+
+                },
+                error: function (error) {
+                    LoadingSpinner.stop(container)
+
+
+                    if (error.statusText == "error") {
+                        LoadingSpinner.stop(container)
+                        //alert("An error occured")
+                        showCustomSuccessModal("An error occured", "red")
+
+
+                    } else {
+                        //$("#message").css("color", "red");
+                        //$('#message').html(JSON.stringify(err.responseJSON.detail))
+                        showCustomSuccessModal(JSON.stringify(error.responseJSON.detail), "red")
+
+                    }
+                }
+            })
+        })
+
     </script>
 </body>
 

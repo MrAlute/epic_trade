@@ -154,34 +154,17 @@
                 <div class="table-container">
                     <table>
                         <caption style="color: rgb(221, 79, 23);">All Registered Users</caption>
-                        <tbody>
+                        <tbody id="users_body">
                             <tr>
-                                <th>User ID</th>
-                                <th>Token</th>
+                          
+                                
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Total investment</th>
                                 <th>Delete User</th>
                             </tr>
-                            <tr>
-                                <td data-cell="id">22</td>
-                                <td data-cell="token">1264E7</td>
-                                <td data-cell="name">Mac Verstappen</td>
-                                <td data-cell="email">abc@gmail.com</td>
-                                <td data-cell="country">England</td>
-                                <td data-cell="investment">$20,000</td>
-                                <td data-cell="delete"><i class='bx bx-trash icon eye' style="color: red; font-size: 1.5rem; cursor: pointer;" onclick="show_info_alert()"></i></td>
-                            </tr>
-                            <tr>
-                                <td data-cell="id">23</td>
-                                <td data-cell="token">6264E7</td>
-                                <td data-cell="name">Jack Verstappen</td>
-                                <td data-cell="email">bbc@gmail.com</td>
-                                <td data-cell="country">United States</td>
-                                <td data-cell="investment">$100,000</td>
-                                <td data-cell="delete"><i class='bx bx-trash icon eye' style="color: red; font-size: 1.5rem; cursor: pointer;" onclick="show_info_alert()"></i></td>
-                            </tr>
+                            
                       
                          
                         </tbody>
@@ -193,9 +176,51 @@
     </div>
 
  
+    <script src="/scripts/universal.js"></script>
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
 
+
+
+    <script>
+          const uniqueId = localStorage.getItem('uniqueId')
+        // JavaScript code to populate user information
+
+        const usersBody = document.getElementById("users_body");
+
+        $.ajax({
+            url: url + "admin/users/view",
+            type: "GET",
+            headers: {
+
+                Authorization: "Bearer " + token
+            },
+            success: function (data) {
+
+                console.log(data)
+                   // Loop through the data and append rows to the table
+            data.forEach(user => {
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `<td id="user_id" data-cell="name" style="display:none">${user.id}</td>
+                    <td data-cell="name">${user.name}</td>
+                    <td data-cell="email">${user.email}</td>
+                    <td data-cell="country">${user.country}</td>
+                    <td data-cell="investment">$${user.total_investments}</td>
+                    <td id="user_id" data-cell="delete"><i class='bx bx-trash icon eye' style="color: red; font-size: 1.5rem; cursor: pointer;" onclick="show_info_alert()"></i></td>
+                `;
+                usersBody.appendChild(newRow);
+            });
+              
+            },
+            error: function (err) {
+
+                console.log(err)
+
+            }
+
+        })
+    </script>
 </body>
 
 </html>

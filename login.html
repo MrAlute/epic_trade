@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN - EPIC TRADE</title>
+
+    <link rel="stylesheet" href="/user-dashboard/styles/register.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" type="image/png" href="/images/epiiktrade_favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&family=Roboto+Slab:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+
+</head>
+
+<body>
+    <h1>EPIC TRADE</h1>
+    <div class="container">
+        <form id="form" class="form">
+            <h2>Login</h2>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email">
+                <small>Error Message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <small>Error Message</small>
+            </div>
+            <!-- <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div> -->
+
+            <input type="submit" value="Login" class="login-button" class="button" id="login" />
+            <p>Don't have an account? <a href="./register.html">Signup</a></p>
+        </form>
+
+
+        <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
+            <div class="custom-modal-content">
+                <div class="custom-modal-body">
+                    <i class="custom-success-icon fa fa-check-circle"></i>
+                    <p>Success! Account created successfully.</p>
+                    <button class="custom-modal-close-btn" onclick="hideCustomSuccessModal()">&times;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner-container">
+        </div>
+
+    </div>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/universal.js"></script>
+
+    <div id="google_translate_element" style="position: fixed; left: 100px;  top: 0; z-index: 100;"></div>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script src="/jquery/dist/jquery.min.js"></script>
+
+    <!--GOOGLE TRANLATOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+
+    <script>
+        // window.addEventListener("load", () => {
+        //     document.querySelector(".page-loader").classList.add("fade-out");
+        //     document.querySelector(".page-loader").style.display = "none";
+        // })
+
+
+
+
+
+
+
+        var email = document.getElementById("email").value
+        var password = document.getElementById("password");
+
+        var login = document.getElementById("login");
+
+
+        login.addEventListener("click", function (e) {
+            e.preventDefault()
+            LoadingSpinner.spin(container)
+            var formData = new FormData();
+            formData.append("username", document.getElementById('email').value);
+            formData.append("password", document.getElementById('password').value);
+
+
+            $.ajax({
+                url: url + "signin",
+                type: "post",
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function (data) {
+                    LoadingSpinner.stop(container)
+
+                    if (data.message == "login successfull") {
+                        //alert("Logining you in");
+
+
+                        if (data.user_details.is_admin == true) {
+                            showCustomSuccessModal(data.message, "green")
+
+                            // $('#success-message').html(data.message + ". Redirecting to Dashboard");
+
+                            localStorage.setItem("name", data.user_details.name);
+                            localStorage.setItem("token", data.access_token);
+                            localStorage.setItem("email", data.user_details.email);
+
+                            localStorage.setItem("id", data.user_details.id)
+                            localStorage.setItem("uniqueId", data.user_details.unique_id);
+                            localStorage.setItem("username", data.user_details.username);
+                            localStorage.setItem("is_admin", true);
+                            setTimeout(() => {
+                                location.href = "/admin-dashboard/dashboard.html";
+                            }, 3000);
+                        } else {
+                            showCustomSuccessModal(data.message, "green")
+                            
+                            localStorage.setItem("name", data.user_details.name);
+                            localStorage.setItem("token", data.access_token);
+                            localStorage.setItem("email", data.user_details.email);
+
+                            localStorage.setItem("id", data.user_details.id)
+                            localStorage.setItem("uniqueId", data.user_details.unique_id);
+                            localStorage.setItem("username", data.user_details.username);
+                            localStorage.setItem("is_admin", false);
+                            setTimeout(() => {
+                                location.href = "/user-dashboard/dashboard.html";
+                            }, 3000);
+                        }
+                    } else {
+
+                        //alert("Credentials not correct");
+                        showCustomSuccessModal("Credentials not correct", "red")
+
+
+                    }
+
+                },
+                error: function (error) {
+                    LoadingSpinner.stop(container)
+
+
+                    if (error.statusText == "error") {
+                        loading.out()
+                        //alert("An error occured")
+                        showCustomSuccessModal("An error occured", "red")
+
+
+                    } else {
+                        //$("#message").css("color", "red");
+                        //$('#message').html(JSON.stringify(err.responseJSON.detail))
+                        showCustomSuccessModal(JSON.stringify(error.responseJSON.detail), "red")
+
+                    }
+                }
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

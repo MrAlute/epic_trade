@@ -26,50 +26,56 @@
 
 
     <div class="user-menu-wrap">
-  
-        <a class="mini-photo-wrapper" href="#"><img class="mini-photo" src="../images/user.jpg" width="36" height="36" style="border-radius: 50%;"/></a>
-       
-        
+
+        <a class="mini-photo-wrapper" href="#"><img class="mini-photo" src="../images/user.jpg" width="36" height="36"
+                style="border-radius: 50%;" /></a>
+
+
         <div class="menu-container">
-          <ul class="user-menu">
-            <div class="profile-highlight">
-              <img src="../images/user.jpg" alt="profile-img" width=36 height=36>
-              <div class="details">
-                <div id="profile-name">Kenny Lee</div>
-                <div id="profile-footer">@Kenny</div>
-              </div>
-            </div>
-            <li class="user-menu__item">
-                <a class="user-menu-link" href="deposit.html">
-                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon" width=20 height=20>
-                  <div>Profile</div>
-                </a>
-              </li>
-            <li class="user-menu__item">
-              <a class="user-menu-link" href="deposit.html">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon" width=20 height=20>
-                <div>Deposit</div>
-              </a>
-            </li>
-            <li class="user-menu__item">
-              <a class="user-menu-link" href="withdraw.html">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png" alt="team_icon" width=20 height=20 >
-                <div>Withdraw</div>
-              </a>
-            </li>
-            <li class="user-menu__item">
-              <a class="user-menu-link" href="invest.html">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/book.png" alt="team_icon" width=20 height=20 >
-                <div>Invest</div>
-              </a>
-            </li>
-            <div class="footer">
-              <li class="user-menu__item"><a class="user-menu-link" href="login.html" style="color: #F44336;">Logout</a></li>
-              <li class="user-menu__item"><a class="user-menu-link" href="#">Settings</a></li>
-            </div>
-          </ul>
+            <ul class="user-menu">
+                <div class="profile-highlight">
+                    <img src="../images/user.jpg" alt="profile-img" width=36 height=36>
+                    <div class="details">
+                        <div id="profile_name">Kenny Lee</div>
+                        <div id="profile_footer">@Kenny</div>
+                    </div>
+                </div>
+                <li class="user-menu__item">
+                    <a class="user-menu-link" href="deposit.html">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon"
+                            width=20 height=20>
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li class="user-menu__item">
+                    <a class="user-menu-link" href="deposit.html">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/trophy.png" alt="trophy_icon"
+                            width=20 height=20>
+                        <div>Deposit</div>
+                    </a>
+                </li>
+                <li class="user-menu__item">
+                    <a class="user-menu-link" href="withdraw.html">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/team.png" alt="team_icon"
+                            width=20 height=20>
+                        <div>Withdraw</div>
+                    </a>
+                </li>
+                <li class="user-menu__item">
+                    <a class="user-menu-link" href="invest.html">
+                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1604623/book.png" alt="team_icon"
+                            width=20 height=20>
+                        <div>Invest</div>
+                    </a>
+                </li>
+                <div class="footer">
+                    <li class="user-menu__item"><a class="user-menu-link" href="login.html"
+                            style="color: #F44336;">Logout</a></li>
+                    <li class="user-menu__item"><a class="user-menu-link" href="#">Settings</a></li>
+                </div>
+            </ul>
         </div>
-      </div>
+    </div>
 
 
     <div class="container">
@@ -81,11 +87,12 @@
         <nav class="sidebar">
             <header>
                 <div class="image-text">
-                    
+
 
                     <div class="text logo-text">
-                        <span class="name"><img id="logoImg" src="../images/epiiktrade_black.png" alt="Epic Trade Name"></span>
-                       
+                        <span class="name"><img id="logoImg" src="../images/epiiktrade_black.png"
+                                alt="Epic Trade Name"></span>
+
                     </div>
                 </div>
 
@@ -292,8 +299,8 @@
                                 <td data-cell="career points">4443.5</td>
                                 <td data-cell="championships">7</td>
                             </tr>
-                      
-                         
+
+
                         </tbody>
                     </table>
                 </div>
@@ -310,6 +317,8 @@
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="/scripts/universal.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -317,7 +326,7 @@
 
 
 
- 
+
     <!--GOOGLE TRANLATOR-->
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -325,8 +334,8 @@
         }
     </script>
 
-       <!--CRYPTO CHAT-->
-       <script>
+    <!--CRYPTO CHAT-->
+    <script>
         const widget = new TradingView.widget({
             "autosize": true,
             "symbol": "BTCUSDT",
@@ -377,6 +386,28 @@
                     "locale": "en"
             }
         </script> -->
+
+
+
+    <script>
+
+
+        var profileName = document.querySelector("#profile_name")
+        if (profileName) {
+            profileName.innerHTML = localStorage.getItem("name");
+        }
+
+        var profileFooter = document.querySelector("#profile_footer")
+        if (profileFooter) {
+            profileFooter.innerHTML = localStorage.getItem("username");
+        }
+
+
+
+        
+
+        
+    </script>
 </body>
 
 </html>

@@ -32,15 +32,15 @@ const logoImg = document.getElementById("logoImg");
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   document.body.classList.add('dark');
-  logoImg.src = '../images/epiiktrade2.png';
+  logoImg.src = '/images/epiiktrade2.png';
 }
 
 
 
-//USER MENU
-document.querySelector('.mini-photo-wrapper').addEventListener('click', function () {
-  document.querySelector('.menu-container').classList.toggle('active');
-});
+// //USER MENU
+// document.querySelector('.mini-photo-wrapper').addEventListener('click', function () {
+//   document.querySelector('.menu-container').classList.toggle('active');
+// });
 
 
 

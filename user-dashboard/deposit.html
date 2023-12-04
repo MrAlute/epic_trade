@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="icon" type="image/png" href="../images/epiiktrade_favicon.png">
     <link
@@ -27,16 +28,16 @@
             max-width: 600px;
         }
 
-        .dark .payment-container{
+        .dark .payment-container {
             background-color: rgb(32, 31, 31);
             color: #fff;
         }
 
-        .dark .payment-container p{
+        .dark .payment-container p {
             color: black;
         }
 
-        a{
+        a {
             text-decoration: none;
         }
 
@@ -50,7 +51,7 @@
             font-weight: bold;
         }
 
-        .amount-input{
+        .amount-input {
             height: 40px;
             width: 80%;
             padding-left: 10px;
@@ -99,8 +100,8 @@
 
 <body>
     <div id="google_translate_element" style="position: fixed; right: 60px; top: 0; z-index: 10;"></div>
-    
-    
+
+
     <div class="container">
         <input id="menu__toggle" type="checkbox" />
         <label class="menu__btn" for="menu__toggle">
@@ -109,7 +110,7 @@
         <nav class="sidebar">
             <header>
                 <div class="image-text">
-                   
+
 
                     <div class="text logo-text">
                         <span class="name"><img src="../images/epiiktrade2.png" alt="Epic Trade Name"></span>
@@ -204,22 +205,22 @@
             <div class="payment-container">
                 <h2>Select Payment Option</h2>
                 <Label>Amount</Label>
-                <input class="amount-input" name="amount" type="text" placeholder="$" required><br><br>
+                <input class="amount-input" id="amount" name="amount" type="text" placeholder="$" required><br><br>
                 <label><input type="radio" name="payment-option" value="usdt"> USDT</label>
                 <label><input type="radio" name="payment-option" value="btc"> Bitcoin</label>
                 <div class="wallet-address" id="usdt-wallet">
                     <p>Make payment to</p>
                     <p>USDT Wallet Address:</p>
-                    <input type="text" value="TDEiVPiichEbGNRBPUdwiVMkEe1bK2iKZs" readonly>
+                    <input type="text" id="usdt_address" readonly>
                     <button onclick="copyToClipboard('usdt-wallet')">Copy Address</button>
-                    <button ><a href="payment_proof.html">Paid?</a></button>
+                    <button><a href="payment_proof.html">Paid?</a></button>
                 </div>
                 <div class="wallet-address" id="btc-wallet">
                     <p>Make payment to</p>
                     <p>Bitcoin Wallet Address:</p>
-                    <input type="text" value="1b5gGkScSVCytXWvkMR79JDnrSneo1txM" readonly>
+                    <input type="text" id="btc_address"  readonly>
                     <button onclick="copyToClipboard('btc-wallet')">Copy Address</button>
-                    <button ><a href="payment_proof.html">Paid?</a></button>
+                    <button><a href="payment_proof.html">Paid?</a></button>
                 </div>
             </div>
         </section>
@@ -229,20 +230,13 @@
 
 
     <script src="scripts/dashboard.js"></script>
+    <script src="/scripts/universal.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
-
-
- 
-    <!--GOOGLE TRANLATOR-->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
 
     //PAYMENT script
     <script>
@@ -264,6 +258,32 @@
                 document.getElementById(selectedWallet).style.display = 'block';
             });
         }
+
+
+        var usdtAddress = document.getElementById("usdt_address");
+        var bitcoinAddress = document.getElementById("btc_address");
+
+        $.ajax({
+            url: url + "user/address/view",
+            type: "GET",
+            headers: {
+
+                Authorization: "Bearer " + token
+            },
+            success: function (data) {
+
+                console.log(data)
+                usdtAddress.value = data[0].usdt;
+                bitcoinAddress.value = data[0].bitcoin;
+            },
+            error: function (err) {
+
+                console.log(err)
+
+            }
+
+        })
+
     </script>
 
 </body>

@@ -1,0 +1,77 @@
+/* Custom Slide-In and Slide-Out Success Alert Modal Styles */
+.custom-modal {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: -400px;
+    /* Initial position outside the viewport on the left */
+    transform: translateY(-10%);
+    z-index: 9999;
+    width: 350px;
+    max-width: 80%;
+    /* Adjust the max-width as needed */
+    transition: left 0.5s ease-in-out;
+    /* Smooth sliding-in animation with a longer duration */
+}
+
+.custom-slide-in-out-modal {
+    left: 40%;
+    /* Position it at the center for the slide-in animation */
+}
+
+.custom-slide-out-modal {
+    left: 100%;
+    /* Position it outside the viewport on the right for the slide-out animation */
+}
+
+.custom-modal-content {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    /* Required for positioning the close button */
+}
+
+.custom-modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}
+
+.custom-success-icon {
+    font-size: 36px;
+
+}
+
+.custom-modal-close-btn {
+
+    font-size: 30px;
+    background: rgb(43, 226, 58);
+    border-radius: 8px;
+    padding: 0px 15px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.custom-modal-close-btn:hover {
+    opacity: 0.8;
+    border-color: #28a745;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    z-index: 999;
+}
