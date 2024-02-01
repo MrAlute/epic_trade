@@ -5,8 +5,8 @@
 // <button onclick="show_success_alert()">show success</button>
 
 
-var url = "http://127.0.0.1:8000/";
-// var url = "https://api.minersaid.com/";
+//var url = "http://127.0.0.1:8000/";
+var url = "https://epictradeglobal.onrender.com/";
 
 const token = localStorage.getItem('token')
 
