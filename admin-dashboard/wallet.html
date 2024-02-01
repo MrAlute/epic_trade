@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="icon" type="image/png" href="../images/epiiktrade_favicon.png">
     <link
@@ -17,10 +18,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    
+
     <style>
         .profile-container {
-            width: 80%;
+            width: 95%;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
@@ -28,7 +29,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
             margin-top: 20px;
         }
 
@@ -50,7 +51,8 @@
         }
 
         input[type="text"] {
-            width: 100%;
+            width: 300px;
+            height: 40px;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 3px;
@@ -72,12 +74,14 @@
 
         /* Language preference */
         /* Custom styling for the select box container */
-        .custom-lang-container{
+        .custom-lang-container {
             margin-top: 50px;
         }
-        .custom-lang-container h2{
+
+        .custom-lang-container h2 {
             color: #FF5627;
         }
+
         .custom-select-container {
             position: relative;
             display: inline-block;
@@ -201,7 +205,19 @@
         </nav>
 
         <section class="home">
+            <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
+                <div class="custom-modal-content">
+                    <div class="custom-modal-body">
+                        <i class="custom-success-icon fa fa-check-circle"></i>
+                        <p>Success! Account created successfully.</p>
+                        <button class="custom-modal-close-btn" onclick="hideCustomSuccessModal()">&times;</button>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Loading Spinner -->
+            <div class="loading-spinner-container">
+            </div>
             <div class="text">Update your wallets</div>
 
             <div class="profile-container">
@@ -213,7 +229,7 @@
                     <label for="usdt">USDT:</label>
                     <input type="text" id="usdt">
                 </div>
-                <button>Update</button>
+                <button id="update_address">Update</button>
             </div>
 
         </section>
@@ -223,16 +239,87 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 
+    <script src="/scripts/universal.js"></script>
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/script.js"></script>
+    <script src="/jquery/dist/jquery.min.js"></script>
+
 
     <script>
         // JavaScript code to populate user information
-        document.getElementById("fullname").value = "John Doe";
-        document.getElementById("username").value = "johndoe";
-        document.getElementById("phone").value = "+1234567890";
-        document.getElementById("email").value = "johndoe@example.com";
-        document.getElementById("country").value = "United States";
+
+
+        $.ajax({
+            url: url + "Admin/crypto_currency_address/view",
+            type: "GET",
+            headers: {
+
+                Authorization: "Bearer " + token
+            },
+            success: function (data) {
+
+                console.log(data)
+
+
+                var usdtAddress = document.getElementById("usdt").value = data[0].usdt;
+                var bitcoinAddress = document.getElementById("bitcoin").value = data[0].bitcoin;
+
+            },
+            error: function (err) {
+
+                console.log(err)
+
+            }
+
+        })
+
+
+        var updateButton = document.getElementById("update_address");
+
+
+        updateButton.addEventListener("click", function (e) {
+            e.preventDefault()
+            LoadingSpinner.spin(container)
+            var formData = new FormData();
+            formData.append("bitcoin", document.getElementById('bitcoin').value);
+            formData.append("usdt", document.getElementById('usdt').value);
+
+            $.ajax({
+                url: url + "admin/cryptoaddress/update",
+                type: "put",
+                processData: false,
+                contentType: false,
+                data: formData,
+                headers: {
+
+                    Authorization: "Bearer " + token
+                },
+                success: function (data) {
+                    LoadingSpinner.stop(container)
+
+                    showCustomSuccessModal(data.message, "green")
+
+
+                },
+                error: function (error) {
+                    LoadingSpinner.stop(container)
+
+
+                    if (error.statusText == "error") {
+                        LoadingSpinner.stop(container)
+                        //alert("An error occured")
+                        showCustomSuccessModal("An error occured", "red")
+
+
+                    } else {
+                        //$("#message").css("color", "red");
+                        //$('#message').html(JSON.stringify(err.responseJSON.detail))
+                        showCustomSuccessModal(JSON.stringify(error.responseJSON.detail), "red")
+
+                    }
+                }
+            })
+        })
     </script>
 </body>
 

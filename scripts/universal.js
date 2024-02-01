@@ -243,3 +243,70 @@ function hideCustomSuccessModal() {
     }, 500); // Adjust the delay time for the slide-out animation as needed
 }
 
+
+
+// Reusable delete modal
+ // Reusable modal and functions
+ const modal = document.getElementById('delete-modal');
+ const deleteButton = document.getElementById('confirm_delete');
+ const cancelButton = document.getElementById('cancel-button');
+
+ let deleteEndpoint = ''; // Variable to store the delete endpoint
+ let deleteCallback = null; // Callback function to execute after deletion
+
+ // Function to show the delete confirmation modal
+ const showConfirmModal = (endpoint, userid, callback) => {
+     deleteEndpoint = endpoint;
+     deleteCallback = callback;
+
+     const deleteButton = document.getElementById('confirm_delete');
+     modal.style.display = "flex";
+     deleteButton.setAttribute('data-userid', userid);
+ }
+
+ // Function to hide the modal
+ const hideModal = () => {
+     modal.style.display = "none";
+ }
+
+ // Event listener for cancel button
+ if (cancelButton) {
+     cancelButton.addEventListener('click', () => {
+         hideModal();
+     });
+ }
+ // Event listener for delete button
+ if (deleteButton) {
+     deleteButton.addEventListener('click', () => {
+         if (deleteEndpoint && deleteCallback) {
+             // Perform the delete action using the stored endpoint
+             deleteAction(deleteEndpoint);
+             // Execute the callback function after deletion
+             deleteCallback();
+         }
+         hideModal();
+     });
+ }
+
+ // Function to perform the delete action
+ const deleteAction = (endpoint) => {
+     const userid = deleteButton.dataset.userid;
+
+     $.ajax({
+         url: url + endpoint + userid,
+         type: "delete",
+         headers: {
+             "Authorization": "Bearer " + token,
+         },
+         success: function (data) {
+             LoadingSpinner.stop(container);
+             showCustomSuccessModal(data.message, "green");
+             location.reload();
+         },
+         error: function (err) {
+             LoadingSpinner.stop(container);
+             showCustomSuccessModal("An error occurred", "red");
+             console.log(err);
+         }
+     });
+ }

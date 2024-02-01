@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="icon" type="image/png" href="../images/epiiktrade_favicon.png">
     <link
@@ -18,7 +19,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
+    <style>
+        button{
+            color: red;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,7 +115,23 @@
         </nav>
 
 
+        <div class="main-modal" id="delete-modal">
+            <div class="main-modal-content">
+                <div class="modal-top">
+                    <p>Confirm Delete Action</p>
+                </div>
+                <div class="modal-body">
+                    <p>This Action Will Permanently Delete this, are you Sure You Want to Continue with this Action?
+                    </p>
+                </div>
+                <div class="modal-controls">
+                    <button id="cancel-button">Cancel</button>
+                    <button class="delete" id="confirm_delete">Delete</button>
+                </div>
+            </div>
+        </div>
         <section class="home">
+
 
             <div class="card-container">
 
@@ -121,13 +144,13 @@
                                 <path
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
                                 </path>
-                            </svg></h4><span class="c-dashboardInfo__count">100</span>
+                            </svg></h4><span class="c-dashboardInfo__count" id="total_users">100</span>
                     </div>
                 </div>
                 <div class="c-dashboardInfo">
                     <div class="wrap">
-                        <h4 class="c-dashboardInfo__title">Total Deposits<svg class="MuiSvgIcon-root-19" focusable="false"
-                                viewBox="0 0 24 24" aria-hidden="true" role="presentation">
+                        <h4 class="c-dashboardInfo__title">Total Deposits<svg class="MuiSvgIcon-root-19"
+                                focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z">
@@ -148,25 +171,36 @@
                 </div>
             </div>
 
+            <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
+                <div class="custom-modal-content">
+                    <div class="custom-modal-body">
+                        <i class="custom-success-icon fa fa-check-circle"></i>
+                        <p>Success! Account created successfully.</p>
+                        <button class="custom-modal-close-btn" onclick="hideCustomSuccessModal()">&times;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner-container">
+            </div>
 
             <!--TRANSACTIONS SECTION-->
             <div class="table-wrapper">
                 <div class="table-container">
                     <table>
                         <caption style="color: rgb(221, 79, 23);">All Registered Users</caption>
-                        <tbody id="users_body">
+                        <thead>
                             <tr>
-                          
-                                
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>Total investment</th>
                                 <th>Delete User</th>
                             </tr>
-                            
-                      
-                         
+                        </thead>
+                        <tbody id="users_body">
+
                         </tbody>
                     </table>
                 </div>
@@ -175,7 +209,7 @@
         </section>
     </div>
 
- 
+
     <script src="/scripts/universal.js"></script>
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/script.js"></script>
@@ -184,42 +218,67 @@
 
 
     <script>
-          const uniqueId = localStorage.getItem('uniqueId')
+        const uniqueId = localStorage.getItem('uniqueId')
+
         // JavaScript code to populate user information
+        $(document).ready(function () {
+            function populateTable(data) {
+                const usersTable = $("#users_body");
+                const totalUsers = document.getElementById("total_users");
+                // usersTable.empty(); // Clear the table first
+                var counting = 0;
+                data.forEach(function (item) {
+                    counting += 1
+                    totalUsers.innerHTML = counting;
+                    const row = `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.country}</td>
+                            <td>${item.total_investments}</td>
+                            <td>
+                                <button class="btn btn-danger btn-xs delete-button" 
+                                    data-userid="${item.id}"
+                                    data-endpoint="admin/users/delete/"
+                                    data-callback="refreshLoanTable">
+                                    <i class="glyphicon glyphicon-remove"></i> Delete
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                    usersTable.append(row);
+                });
 
-        const usersBody = document.getElementById("users_body");
+                // Attach a click event listener to the delete buttons within each row
+                usersTable.find('.delete-button').on('click', function () {
+                    const userid = $(this).data('userid');
+                    const endpoint = $(this).data('endpoint');
+                    const callback = $(this).data('callback');
 
-        $.ajax({
-            url: url + "admin/users/view",
-            type: "GET",
-            headers: {
-
-                Authorization: "Bearer " + token
-            },
-            success: function (data) {
-
-                console.log(data)
-                   // Loop through the data and append rows to the table
-            data.forEach(user => {
-                const newRow = document.createElement("tr");
-                newRow.innerHTML = `<td id="user_id" data-cell="name" style="display:none">${user.id}</td>
-                    <td data-cell="name">${user.name}</td>
-                    <td data-cell="email">${user.email}</td>
-                    <td data-cell="country">${user.country}</td>
-                    <td data-cell="investment">$${user.total_investments}</td>
-                    <td id="user_id" data-cell="delete"><i class='bx bx-trash icon eye' style="color: red; font-size: 1.5rem; cursor: pointer;" onclick="show_info_alert()"></i></td>
-                `;
-                usersBody.appendChild(newRow);
-            });
-              
-            },
-            error: function (err) {
-
-                console.log(err)
-
+                    // Show the delete confirmation modal and pass attributes
+                    showConfirmModal(endpoint, userid, callback);
+                });
             }
+            $.ajax({
+                url: url + "admin/users/view",
+                type: "GET",
+                headers: {
 
-        })
+                    Authorization: "Bearer " + token
+                },
+                success: function (data) {
+                    console.log(data)
+                    populateTable(data)
+
+                },
+                error: function (err) {
+
+                    console.log(err)
+
+                }
+
+            })
+        });
     </script>
 </body>
 
