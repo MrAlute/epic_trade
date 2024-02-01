@@ -57,7 +57,7 @@
     <h1>EPIC TRADE</h1>
     <div class="container">
 
-        <form id="form" class="form">
+        <div id="form" class="form">
             <h2>Register With Us</h2>
             <div class="form-control">
                 <label for="fullname">Full Name</label>
@@ -99,9 +99,9 @@
                 <small>Error Message</small>
             </div>
             <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-            <button>Submit</button>
+            <button id="submit">Submit</button>
             <p>Already have an account? <a href="./login.html">Login</a></p>
-        </form>
+        </div>
         <div id="customSuccessModal" class="custom-modal custom-slide-in-out-modal" style="display:none;">
             <div class="custom-modal-content">
                 <div class="custom-modal-body">
@@ -519,7 +519,7 @@
 
 
         // Event Listener
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('click', function (e) {
             e.preventDefault();
             // LoadingSpinner.spin(container)
 
